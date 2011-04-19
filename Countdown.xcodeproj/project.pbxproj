@@ -11,12 +11,13 @@
 		B64F8CDC135CFA5700C2D61F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B64F8CDA135CFA5700C2D61F /* InfoPlist.strings */; };
 		B64F8CDF135CFA5700C2D61F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B64F8CDE135CFA5700C2D61F /* main.m */; };
 		B64F8CE2135CFA5700C2D61F /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = B64F8CE0135CFA5700C2D61F /* Credits.rtf */; };
-		B64F8CE5135CFA5700C2D61F /* CountdownAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B64F8CE4135CFA5700C2D61F /* CountdownAppDelegate.m */; };
 		B64F8CE8135CFA5700C2D61F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B64F8CE6135CFA5700C2D61F /* MainMenu.xib */; };
 		B64F8CEF135CFA5800C2D61F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B64F8CD1135CFA5700C2D61F /* Cocoa.framework */; };
 		B64F8CF7135CFA5800C2D61F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B64F8CF5135CFA5800C2D61F /* InfoPlist.strings */; };
 		B64F8CFA135CFA5800C2D61F /* CountdownTests.h in Resources */ = {isa = PBXBuildFile; fileRef = B64F8CF9135CFA5800C2D61F /* CountdownTests.h */; };
 		B64F8CFC135CFA5800C2D61F /* CountdownTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B64F8CFB135CFA5800C2D61F /* CountdownTests.m */; };
+		B64F8D07135CFA7800C2D61F /* CountdownAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B64F8D06135CFA7800C2D61F /* CountdownAppDelegate.m */; };
+		B64F8D0D135D2CE300C2D61F /* APPL.icns in Resources */ = {isa = PBXBuildFile; fileRef = B64F8D0C135D2CE300C2D61F /* APPL.icns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,20 +36,21 @@
 		B64F8CD4135CFA5700C2D61F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		B64F8CD5135CFA5700C2D61F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B64F8CD6135CFA5700C2D61F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		B64F8CD9135CFA5700C2D61F /* Countdown-Info.plist */ = {isa = PBXFileReference; path = "Countdown-Info.plist"; sourceTree = "<group>"; };
+		B64F8CD9135CFA5700C2D61F /* Countdown-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Countdown-Info.plist"; sourceTree = "<group>"; };
 		B64F8CDB135CFA5700C2D61F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B64F8CDD135CFA5700C2D61F /* Countdown-Prefix.pch */ = {isa = PBXFileReference; path = "Countdown-Prefix.pch"; sourceTree = "<group>"; };
+		B64F8CDD135CFA5700C2D61F /* Countdown-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Countdown-Prefix.pch"; sourceTree = "<group>"; };
 		B64F8CDE135CFA5700C2D61F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B64F8CE1135CFA5700C2D61F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		B64F8CE3135CFA5700C2D61F /* CountdownAppDelegate.h */ = {isa = PBXFileReference; path = CountdownAppDelegate.h; sourceTree = "<group>"; };
-		B64F8CE4135CFA5700C2D61F /* CountdownAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CountdownAppDelegate.m; sourceTree = "<group>"; };
 		B64F8CE7135CFA5700C2D61F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		B64F8CEE135CFA5800C2D61F /* CountdownTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CountdownTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B64F8CF4135CFA5800C2D61F /* CountdownTests-Info.plist */ = {isa = PBXFileReference; path = "CountdownTests-Info.plist"; sourceTree = "<group>"; };
+		B64F8CF4135CFA5800C2D61F /* CountdownTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CountdownTests-Info.plist"; sourceTree = "<group>"; };
 		B64F8CF6135CFA5800C2D61F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B64F8CF8135CFA5800C2D61F /* CountdownTests-Prefix.pch */ = {isa = PBXFileReference; path = "CountdownTests-Prefix.pch"; sourceTree = "<group>"; };
+		B64F8CF8135CFA5800C2D61F /* CountdownTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CountdownTests-Prefix.pch"; sourceTree = "<group>"; };
 		B64F8CF9135CFA5800C2D61F /* CountdownTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CountdownTests.h; sourceTree = "<group>"; };
 		B64F8CFB135CFA5800C2D61F /* CountdownTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CountdownTests.m; sourceTree = "<group>"; };
+		B64F8D05135CFA7800C2D61F /* CountdownAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountdownAppDelegate.h; sourceTree = "<group>"; };
+		B64F8D06135CFA7800C2D61F /* CountdownAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountdownAppDelegate.m; sourceTree = "<group>"; };
+		B64F8D0C135D2CE300C2D61F /* APPL.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = APPL.icns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 		B64F8CC2135CFA5700C2D61F = {
 			isa = PBXGroup;
 			children = (
+				B64F8D0C135D2CE300C2D61F /* APPL.icns */,
 				B64F8CD7135CFA5700C2D61F /* Countdown */,
 				B64F8CF2135CFA5800C2D61F /* CountdownTests */,
 				B64F8CD0135CFA5700C2D61F /* Frameworks */,
@@ -112,8 +115,8 @@
 		B64F8CD7135CFA5700C2D61F /* Countdown */ = {
 			isa = PBXGroup;
 			children = (
-				B64F8CE3135CFA5700C2D61F /* CountdownAppDelegate.h */,
-				B64F8CE4135CFA5700C2D61F /* CountdownAppDelegate.m */,
+				B64F8D05135CFA7800C2D61F /* CountdownAppDelegate.h */,
+				B64F8D06135CFA7800C2D61F /* CountdownAppDelegate.m */,
 				B64F8CE6135CFA5700C2D61F /* MainMenu.xib */,
 				B64F8CD8135CFA5700C2D61F /* Supporting Files */,
 			);
@@ -225,6 +228,7 @@
 				B64F8CDC135CFA5700C2D61F /* InfoPlist.strings in Resources */,
 				B64F8CE2135CFA5700C2D61F /* Credits.rtf in Resources */,
 				B64F8CE8135CFA5700C2D61F /* MainMenu.xib in Resources */,
+				B64F8D0D135D2CE300C2D61F /* APPL.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,7 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B64F8CDF135CFA5700C2D61F /* main.m in Sources */,
-				B64F8CE5135CFA5700C2D61F /* CountdownAppDelegate.m in Sources */,
+				B64F8D07135CFA7800C2D61F /* CountdownAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
