@@ -118,11 +118,11 @@
 
 - (void)startCountdown:(id)sender
 {
-    NSStatusBar *statusBar = [NSStatusBar systemStatusBar];
-    statusItem = [statusBar statusItemWithLength:NSVariableStatusItemLength];
-    [statusItem retain];
-    [statusItem setEnabled:YES];
-    [statusItem setToolTip:@"Ἐναπομένοντα λεπτά"];
+//    NSStatusBar *statusBar = [NSStatusBar systemStatusBar];
+//    statusItem = [statusBar statusItemWithLength:NSVariableStatusItemLength];
+//    [statusItem retain];
+//    [statusItem setEnabled:YES];
+//    [statusItem setToolTip:@"Ἐναπομένοντα λεπτά"];
     timeout = (int)[timeoutField integerValue];
     [timeoutField setEnabled:NO];
     [timeoutField setEditable:NO];
@@ -132,7 +132,7 @@
     
     NSString *initialStringValue = [[NSNumber numberWithInt:remainingTime] 
                                     stringValue];
-    [statusItem setTitle:initialStringValue];
+//    [statusItem setTitle:initialStringValue];
     [remainingTimeField setStringValue:initialStringValue];
     
     NSDockTile *dockTile = [NSApp dockTile];
@@ -167,7 +167,7 @@
     remainingTime = (remainingTime*60 - [timer timeInterval]) / 60;
     NSString *newStringValue = [[NSNumber numberWithInt:remainingTime] 
                                      stringValue];
-    [statusItem setTitle:newStringValue];
+//    [statusItem setTitle:newStringValue];
     [remainingTimeField setStringValue:newStringValue];
     [[NSApp dockTile] setBadgeLabel:newStringValue];
 }
@@ -181,9 +181,9 @@
     }
     
     [updateTimer invalidate];
-    NSStatusBar *statusBar = [NSStatusBar systemStatusBar];
-    [statusBar removeStatusItem:statusItem];
-    [statusItem release];
+//    NSStatusBar *statusBar = [NSStatusBar systemStatusBar];
+//    [statusBar removeStatusItem:statusItem];
+//    [statusItem release];
     [remainingTimeField setStringValue:@"0"];
     [timeoutField setEditable:YES];
     [timeoutField setBezeled:YES];

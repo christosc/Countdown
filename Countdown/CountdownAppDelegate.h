@@ -15,7 +15,7 @@
 @private
     NSWindow *window;
     NSView *view;
-    NSStatusItem *statusItem;
+//    NSStatusItem *statusItem;
     NSButton *startButton;
     NSButton *stopButton;
     NSTextField *timeoutLabel;
