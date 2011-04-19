@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#define DEFAULT_TIMEOUT 60  //ἀριθμὸς λεπτῶν τῆς ὥρας δι' ἐκπνοὴν τῆς ἀντιστρόφου 
+#define DEFAULT_TIMEOUT 120  //ἀριθμὸς λεπτῶν τῆς ὥρας δι' ἐκπνοὴν τῆς ἀντιστρόφου 
                             // μετρήσεως
 
 @interface CountdownAppDelegate : NSObject <NSApplicationDelegate> {

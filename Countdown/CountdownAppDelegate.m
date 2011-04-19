@@ -170,6 +170,7 @@
     [remainingTimeField setStringValue:@"0"];
     [timeoutField setEditable:YES];
     [timeoutField setBezeled:YES];
+    [timeoutField setEnabled:YES];
     [timeoutField setDrawsBackground:YES];
     
 }
