@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B611729D135DBDC800AF5EAD /* Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = B611729C135DBDC800AF5EAD /* Badge.m */; };
+		B61172A1135DC72B00AF5EAD /* greenBadge.tiff in Resources */ = {isa = PBXBuildFile; fileRef = B611729F135DC72B00AF5EAD /* greenBadge.tiff */; };
+		B61172A2135DC72B00AF5EAD /* redBadge.tiff in Resources */ = {isa = PBXBuildFile; fileRef = B61172A0135DC72B00AF5EAD /* redBadge.tiff */; };
+		B61172A4135DC73700AF5EAD /* README in Resources */ = {isa = PBXBuildFile; fileRef = B61172A3135DC73700AF5EAD /* README */; };
 		B64F8CD2135CFA5700C2D61F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B64F8CD1135CFA5700C2D61F /* Cocoa.framework */; };
 		B64F8CDC135CFA5700C2D61F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B64F8CDA135CFA5700C2D61F /* InfoPlist.strings */; };
 		B64F8CDF135CFA5700C2D61F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B64F8CDE135CFA5700C2D61F /* main.m */; };
@@ -31,6 +35,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B611729B135DBDC800AF5EAD /* Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Badge.h; sourceTree = "<group>"; };
+		B611729C135DBDC800AF5EAD /* Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Badge.m; sourceTree = "<group>"; };
+		B611729F135DC72B00AF5EAD /* greenBadge.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = greenBadge.tiff; sourceTree = "<group>"; };
+		B61172A0135DC72B00AF5EAD /* redBadge.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = redBadge.tiff; sourceTree = "<group>"; };
+		B61172A3135DC73700AF5EAD /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		B64F8CCD135CFA5700C2D61F /* Countdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Countdown.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B64F8CD1135CFA5700C2D61F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		B64F8CD4135CFA5700C2D61F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -76,7 +85,10 @@
 		B64F8CC2135CFA5700C2D61F = {
 			isa = PBXGroup;
 			children = (
+				B61172A3135DC73700AF5EAD /* README */,
 				B64F8D0C135D2CE300C2D61F /* APPL.icns */,
+				B611729F135DC72B00AF5EAD /* greenBadge.tiff */,
+				B61172A0135DC72B00AF5EAD /* redBadge.tiff */,
 				B64F8CD7135CFA5700C2D61F /* Countdown */,
 				B64F8CF2135CFA5800C2D61F /* CountdownTests */,
 				B64F8CD0135CFA5700C2D61F /* Frameworks */,
@@ -117,6 +129,8 @@
 			children = (
 				B64F8D05135CFA7800C2D61F /* CountdownAppDelegate.h */,
 				B64F8D06135CFA7800C2D61F /* CountdownAppDelegate.m */,
+				B611729B135DBDC800AF5EAD /* Badge.h */,
+				B611729C135DBDC800AF5EAD /* Badge.m */,
 				B64F8CE6135CFA5700C2D61F /* MainMenu.xib */,
 				B64F8CD8135CFA5700C2D61F /* Supporting Files */,
 			);
@@ -229,6 +243,9 @@
 				B64F8CE2135CFA5700C2D61F /* Credits.rtf in Resources */,
 				B64F8CE8135CFA5700C2D61F /* MainMenu.xib in Resources */,
 				B64F8D0D135D2CE300C2D61F /* APPL.icns in Resources */,
+				B61172A1135DC72B00AF5EAD /* greenBadge.tiff in Resources */,
+				B61172A2135DC72B00AF5EAD /* redBadge.tiff in Resources */,
+				B61172A4135DC73700AF5EAD /* README in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +283,7 @@
 			files = (
 				B64F8CDF135CFA5700C2D61F /* main.m in Sources */,
 				B64F8D07135CFA7800C2D61F /* CountdownAppDelegate.m in Sources */,
+				B611729D135DBDC800AF5EAD /* Badge.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,6 +466,7 @@
 				B64F8D01135CFA5800C2D61F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B64F8D02135CFA5800C2D61F /* Build configuration list for PBXNativeTarget "CountdownTests" */ = {
 			isa = XCConfigurationList;
@@ -456,6 +475,7 @@
 				B64F8D04135CFA5800C2D61F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

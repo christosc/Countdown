@@ -134,6 +134,16 @@
                                     stringValue];
     [statusItem setTitle:initialStringValue];
     [remainingTimeField setStringValue:initialStringValue];
+    
+    NSDockTile *dockTile = [NSApp dockTile];
+//    Badge *badge = [[[Badge alloc] initWithFrame:CGRectMake(0, 0, 256, 256)] autorelease];
+//    NSLog(@"badge view = %@", [badge description]);
+//    NSLog(@"badge subviews = %@", [[badge subviews] description]);
+//    NSLog(@"badge bounds = %@", NSStringFromRect([badge bounds]));
+//    [dockTile setContentView:badge];
+//    [dockTile display];
+//    [dockTile setShowsApplicationBadge:YES];
+    [dockTile setBadgeLabel:initialStringValue];
 
     updateTimer = [NSTimer scheduledTimerWithTimeInterval:60 // κάθε 60δευτ.
                                                    target:self 
@@ -159,10 +169,17 @@
                                      stringValue];
     [statusItem setTitle:newStringValue];
     [remainingTimeField setStringValue:newStringValue];
+    [[NSApp dockTile] setBadgeLabel:newStringValue];
 }
 
 - (void)stopCountdown:(id)sender
 {
+    // ἀκύρωσον τὸν timeoutTimer ἐὰν οὗτος εἶναι ἐνεργός (ὅταν πατῆται τὸ κουμπὶ
+    // «παῦσον».
+    if ([timeoutTimer isValid]) {
+        [timeoutTimer invalidate];
+    }
+    
     [updateTimer invalidate];
     NSStatusBar *statusBar = [NSStatusBar systemStatusBar];
     [statusBar removeStatusItem:statusItem];
@@ -172,6 +189,10 @@
     [timeoutField setBezeled:YES];
     [timeoutField setEnabled:YES];
     [timeoutField setDrawsBackground:YES];
+    
+    [[NSApp dockTile] setBadgeLabel:@""]; // ἀφαίρεσον τὸ σῆμα (badge)
+//    [[NSApp dockTile] setShowsApplicationBadge:NO];
+//    NSLog(@"dock tile's content view = %@", [[[NSApp dockTile] contentView] description]);
     
 }
 
