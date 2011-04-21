@@ -41,6 +41,7 @@
     [stopButton setAction:@selector(stopCountdown:)];
     [view addSubview:stopButton];
     [stopButton release];
+    [stopButton setEnabled:NO];
     
     
     //--------------------- ΠΕΔΙΑ—ΕΠΙΓΡΑΦΑΙ -------------------------
@@ -114,6 +115,24 @@
     [view addSubview:ending];
     [ending release]; 
     [ending setAlignment:NSLeftTextAlignment];
+    
+    
+    
+    [NSEvent addGlobalMonitorForEventsMatchingMask:NSKeyDownMask handler:^(NSEvent* ev){
+        NSLog(@"From within keyboard event handler!!!");
+        NSUInteger modifiers = [ev modifierFlags];
+        NSString *chars = [ev charactersIgnoringModifiers];
+        
+        NSLog(@"modifiers = %ld", modifiers);
+        NSUInteger modSought = modifiers & (NSControlKeyMask | NSCommandKeyMask | NSAlternateKeyMask);
+        NSLog(@"modSought == (NSControlKeyMask | NSCommandKeyMask | NSAlternateKeyMask) == %d",
+              modSought ==  (NSControlKeyMask | NSCommandKeyMask | NSAlternateKeyMask));  
+        if (modSought ==  (NSControlKeyMask | NSCommandKeyMask | NSAlternateKeyMask)
+            && [chars isEqualToString:@"c"]){
+            NSLog(@"From within IF in keyboard event handler!!!");
+            [self startCountdown:nil];
+        }
+    }];
 }
 
 - (void)startCountdown:(id)sender
@@ -123,6 +142,11 @@
 //    [statusItem retain];
 //    [statusItem setEnabled:YES];
 //    [statusItem setToolTip:@"Ἐναπομένοντα λεπτά"];
+    
+    if ([timeoutTimer isValid]) {
+        [self stopCountdown:nil];
+    }
+    
     timeout = (int)[timeoutField integerValue];
     [timeoutField setEnabled:NO];
     [timeoutField setEditable:NO];
@@ -159,6 +183,9 @@
     
     
     
+    [startButton setEnabled:NO];
+    [stopButton setEnabled:YES];
+    
 }
 
 - (void)updateStatusItem:(id)sender
@@ -180,7 +207,11 @@
         [timeoutTimer invalidate];
     }
     
-    [updateTimer invalidate];
+    if ([updateTimer isValid]) {
+        [updateTimer invalidate];
+    }
+    
+    
 //    NSStatusBar *statusBar = [NSStatusBar systemStatusBar];
 //    [statusBar removeStatusItem:statusItem];
 //    [statusItem release];
@@ -191,6 +222,9 @@
     [timeoutField setDrawsBackground:YES];
     
     [[NSApp dockTile] setBadgeLabel:@""]; // ἀφαίρεσον τὸ σῆμα (badge)
+    
+    [stopButton setEnabled:NO];
+    [startButton setEnabled:YES];
 //    [[NSApp dockTile] setShowsApplicationBadge:NO];
 //    NSLog(@"dock tile's content view = %@", [[[NSApp dockTile] contentView] description]);
     

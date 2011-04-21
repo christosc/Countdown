@@ -34,4 +34,7 @@
 
 @property (assign) IBOutlet NSWindow *window;
 
+
+- (void)startCountdown:(id)sender;
+- (void)stopCountdown:(id)sender;
 @end
