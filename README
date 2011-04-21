@@ -1,0 +1,7 @@
+``Countdown'' is merely a countdown timer with a graphical interface for Mac OS
+X.  You set a time interval in minutes, press "start", and it counts down until
+the set time runs out. It shows the remaining minutes in the application icon
+(both when you press Cmd-Tab and in the Dock).  You can stop the timer at any
+time during the countdown.  ``Countdown'' features a global shortcut key to
+activate the countdown: Ctrl-Opt-Cmd-c .  Its user interface is absolutely
+elementary because I did this app so that it just fits my needs.
