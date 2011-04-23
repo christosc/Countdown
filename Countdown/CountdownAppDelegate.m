@@ -128,7 +128,7 @@
         NSLog(@"modSought == (NSControlKeyMask | NSCommandKeyMask | NSAlternateKeyMask) == %d",
               modSought ==  (NSControlKeyMask | NSCommandKeyMask | NSAlternateKeyMask));  
         if (modSought ==  (NSControlKeyMask | NSCommandKeyMask | NSAlternateKeyMask)
-            && [chars isEqualToString:@"c"]){
+            && [chars isEqualToString:@"k"]){
             NSLog(@"From within IF in keyboard event handler!!!");
             [self startCountdown:nil];
         }
@@ -145,7 +145,7 @@
         NSLog(@"modSought == (NSControlKeyMask | NSCommandKeyMask | NSAlternateKeyMask) == %d",
               modSought ==  (NSControlKeyMask | NSCommandKeyMask | NSAlternateKeyMask));  
         if (modSought ==  (NSControlKeyMask | NSCommandKeyMask | NSAlternateKeyMask)
-            && [chars isEqualToString:@"c"]){
+            && [chars isEqualToString:@"k"]){
             NSLog(@"From within IF in keyboard event handler!!!");
             [self startCountdown:nil];
             return nil;
