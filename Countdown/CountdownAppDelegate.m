@@ -133,6 +133,29 @@
             [self startCountdown:nil];
         }
     }];
+    
+        
+    [NSEvent addLocalMonitorForEventsMatchingMask:NSKeyDownMask handler:^NSEvent*(NSEvent* ev){
+        NSLog(@"From within keyboard event handler!!!");
+        NSUInteger modifiers = [ev modifierFlags];
+        NSString *chars = [ev charactersIgnoringModifiers];
+        
+        NSLog(@"modifiers = %ld", modifiers);
+        NSUInteger modSought = modifiers & (NSControlKeyMask | NSCommandKeyMask | NSAlternateKeyMask);
+        NSLog(@"modSought == (NSControlKeyMask | NSCommandKeyMask | NSAlternateKeyMask) == %d",
+              modSought ==  (NSControlKeyMask | NSCommandKeyMask | NSAlternateKeyMask));  
+        if (modSought ==  (NSControlKeyMask | NSCommandKeyMask | NSAlternateKeyMask)
+            && [chars isEqualToString:@"c"]){
+            NSLog(@"From within IF in keyboard event handler!!!");
+            [self startCountdown:nil];
+        }
+        
+        return nil;
+        
+    }]; 
+    
+    
+    
 }
 
 - (void)startCountdown:(id)sender
