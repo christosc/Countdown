@@ -148,9 +148,10 @@
             && [chars isEqualToString:@"c"]){
             NSLog(@"From within IF in keyboard event handler!!!");
             [self startCountdown:nil];
+            return nil;
         }
-        
-        return nil;
+        else
+            return ev;
         
     }]; 
     
@@ -171,10 +172,16 @@
     }
     
     timeout = (int)[timeoutField integerValue];
-    [timeoutField setEnabled:NO];
-    [timeoutField setEditable:NO];
-    [timeoutField setBezeled:NO];
+//    [timeoutField setEnabled:NO];
+//    [timeoutField resignFirstResponder];
+    [[timeoutField window] makeFirstResponder: nil];
     [timeoutField setDrawsBackground:NO];
+    [timeoutField setSelectable:NO];
+    [timeoutField setEditable:NO];
+    
+    [timeoutField setBezeled:NO];
+    
+    [timeoutField setNeedsDisplay:YES];
     remainingTime = timeout;
     
     NSString *initialStringValue = [[NSNumber numberWithInt:remainingTime] 
@@ -198,13 +205,15 @@
                                                  userInfo:nil
                                                   repeats:YES];
     
+    [updateTimer retain];
     timeoutTimer = [NSTimer scheduledTimerWithTimeInterval:timeout * 60
                                                     target:self
                                             selector:@selector(stopCountdown:)
                                                   userInfo:nil
                                                    repeats:NO];
+    [timeoutTimer retain];
     
-    
+
     
     [startButton setEnabled:NO];
     [stopButton setEnabled:YES];
@@ -239,10 +248,13 @@
 //    [statusBar removeStatusItem:statusItem];
 //    [statusItem release];
     [remainingTimeField setStringValue:@"0"];
-    [timeoutField setEditable:YES];
+    
     [timeoutField setBezeled:YES];
-    [timeoutField setEnabled:YES];
+//    [timeoutField setEnabled:YES];
+    [timeoutField setSelectable:YES];
+    [timeoutField setEditable:YES];
     [timeoutField setDrawsBackground:YES];
+//    [timeoutField dr
     
     [[NSApp dockTile] setBadgeLabel:@""]; // ἀφαίρεσον τὸ σῆμα (badge)
     
