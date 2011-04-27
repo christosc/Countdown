@@ -124,6 +124,8 @@
         NSString *chars = [ev charactersIgnoringModifiers];
         
         NSLog(@"modifiers = %ld", modifiers);
+        NSLog(@"characters = %@", [ev characters]);
+        NSLog(@"charactersIgnoringModifiers = %@", [ev charactersIgnoringModifiers]);
         NSUInteger modSought = modifiers & (NSControlKeyMask | NSCommandKeyMask | NSAlternateKeyMask);
         NSLog(@"modSought == (NSControlKeyMask | NSCommandKeyMask | NSAlternateKeyMask) == %d",
               modSought ==  (NSControlKeyMask | NSCommandKeyMask | NSAlternateKeyMask));  
@@ -141,6 +143,8 @@
         NSString *chars = [ev charactersIgnoringModifiers];
         
         NSLog(@"modifiers = %ld", modifiers);
+        NSLog(@"characters = %@", [ev characters]);
+        NSLog(@"charactersIgnoringModifiers = %@", [ev charactersIgnoringModifiers]);
         NSUInteger modSought = modifiers & (NSControlKeyMask | NSCommandKeyMask | NSAlternateKeyMask);
         NSLog(@"modSought == (NSControlKeyMask | NSCommandKeyMask | NSAlternateKeyMask) == %d",
               modSought ==  (NSControlKeyMask | NSCommandKeyMask | NSAlternateKeyMask));  
