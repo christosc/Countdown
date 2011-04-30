@@ -126,6 +126,7 @@
         NSLog(@"modifiers = %ld", modifiers);
         NSLog(@"characters = %@", [ev characters]);
         NSLog(@"charactersIgnoringModifiers = %@", [ev charactersIgnoringModifiers]);
+        NSLog(@"keyCode = %d", [ev keyCode]);
         NSUInteger modSought = modifiers & (NSControlKeyMask | NSCommandKeyMask | NSAlternateKeyMask);
         NSLog(@"modSought == (NSControlKeyMask | NSCommandKeyMask | NSAlternateKeyMask) == %d",
               modSought ==  (NSControlKeyMask | NSCommandKeyMask | NSAlternateKeyMask));  
@@ -145,6 +146,7 @@
         NSLog(@"modifiers = %ld", modifiers);
         NSLog(@"characters = %@", [ev characters]);
         NSLog(@"charactersIgnoringModifiers = %@", [ev charactersIgnoringModifiers]);
+        NSLog(@"keyCode = %d", [ev keyCode]);
         NSUInteger modSought = modifiers & (NSControlKeyMask | NSCommandKeyMask | NSAlternateKeyMask);
         NSLog(@"modSought == (NSControlKeyMask | NSCommandKeyMask | NSAlternateKeyMask) == %d",
               modSought ==  (NSControlKeyMask | NSCommandKeyMask | NSAlternateKeyMask));  
@@ -212,7 +214,7 @@
     [updateTimer retain];
     timeoutTimer = [NSTimer scheduledTimerWithTimeInterval:timeout * 60
                                                     target:self
-                                            selector:@selector(stopCountdown:)
+                                            selector:@selector(countdownFinished:)
                                                   userInfo:nil
                                                    repeats:NO];
     [timeoutTimer retain];
@@ -234,6 +236,13 @@
     [remainingTimeField setStringValue:newStringValue];
     [[NSApp dockTile] setBadgeLabel:newStringValue];
 }
+
+- (void)countdownFinished:(id)sender
+{
+    [NSApp requestUserAttention:NSCriticalRequest];
+    [self stopCountdown:self];
+}
+
 
 - (void)stopCountdown:(id)sender
 {
