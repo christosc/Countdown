@@ -22,10 +22,10 @@
     
     //--------------------  Κουμπὶ ἐνάρξεως -------------------------
     
-    view = [[NSView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    view = [[NSView alloc] initWithFrame:NSRectFromCGRect(CGRectMake(0, 0, 100, 100))];
     [window setContentView:view];
     [view release];
-    startButton = [[NSButton alloc] initWithFrame:CGRectMake(10, 10, 60, 50)];
+    startButton = [[NSButton alloc] initWithFrame:NSRectFromCGRect(CGRectMake(10, 10, 60, 50))];
     [startButton setTitle:@"Ἄρχισον"];
     [startButton setTarget:self];
     [startButton setAction:@selector(startCountdown:)];
@@ -35,7 +35,7 @@
     
     //-------------------- Κουμπὶ παύσεως ---------------------------
     
-    stopButton = [[NSButton alloc] initWithFrame:CGRectMake(90, 10, 60, 50)];
+    stopButton = [[NSButton alloc] initWithFrame:NSRectFromCGRect(CGRectMake(90, 10, 60, 50))];
     [stopButton setTitle:@"Παῦσον"];
     [stopButton setTarget:self];
     [stopButton setAction:@selector(stopCountdown:)];
@@ -49,7 +49,7 @@
     //--------------------- Προθεσμία -------------------------------
     
     timeoutLabel = [[NSTextField alloc] 
-                    initWithFrame:CGRectMake(10, 100, 90, 20)];
+                    initWithFrame:NSRectFromCGRect(CGRectMake(10, 100, 90, 20))];
     [timeoutLabel setStringValue:@"Προθεσμία:"];
     [timeoutLabel setEditable:NO];
     [timeoutLabel setDrawsBackground:NO];
@@ -62,7 +62,7 @@
     
     
     timeoutField = [[NSTextField alloc] 
-                        initWithFrame:CGRectMake(100, 100, 40, 20)];
+                        initWithFrame:NSRectFromCGRect(CGRectMake(100, 100, 40, 20))];
     [timeoutField setStringValue:[[NSNumber numberWithInt:DEFAULT_TIMEOUT] 
                                     stringValue]];
     [view addSubview:timeoutField];
@@ -71,7 +71,7 @@
     
     
     NSTextField *ending = [[NSTextField alloc] 
-                           initWithFrame:CGRectMake(140, 100, 50, 20)];
+                           initWithFrame:NSRectFromCGRect(CGRectMake(140, 100, 50, 20))];
     [ending setStringValue:@"λεπτά"];
     [ending setEditable:NO];
     [ending setDrawsBackground:NO];
@@ -84,7 +84,7 @@
     //-------------------- Ἐναπομένων χρόνος ----------------------
     
     remainingTimeLabel = [[NSTextField alloc] 
-                    initWithFrame:CGRectMake(10, 70, 90, 20)];
+                    initWithFrame:NSRectFromCGRect(CGRectMake(10, 70, 90, 20))];
     [remainingTimeLabel setStringValue:@"ἐναπομένων:"];
     [remainingTimeLabel setEditable:NO];
     [remainingTimeLabel setDrawsBackground:NO];
@@ -97,7 +97,7 @@
     
     
     remainingTimeField = [[NSTextField alloc] 
-                    initWithFrame:CGRectMake(100, 70, 40, 20)];
+                    initWithFrame:NSRectFromCGRect(CGRectMake(100, 70, 40, 20))];
 //  [remainingTimeField setStringValue:[[NSNumber numberWithInt:DEFAULT_TIMEOUT] 
 //                                  stringValue]];
     [view addSubview:remainingTimeField];
@@ -107,7 +107,7 @@
     
     
     ending = [[NSTextField alloc] 
-                           initWithFrame:CGRectMake(140, 70, 50, 20)];
+                           initWithFrame:NSRectFromCGRect(CGRectMake(140, 70, 50, 20))];
     [ending setStringValue:@"λεπτά"];
     [ending setEditable:NO];
     [ending setDrawsBackground:NO];
@@ -123,7 +123,7 @@
         NSUInteger modifiers = [ev modifierFlags];
         NSString *chars = [ev charactersIgnoringModifiers];
         
-        NSLog(@"modifiers = %ld", modifiers);
+        NSLog(@"modifiers = %lu", (unsigned long)modifiers);
         NSLog(@"characters = %@", [ev characters]);
         NSLog(@"charactersIgnoringModifiers = %@", [ev charactersIgnoringModifiers]);
         NSLog(@"keyCode = %d", [ev keyCode]);
@@ -143,7 +143,7 @@
         NSUInteger modifiers = [ev modifierFlags];
         NSString *chars = [ev charactersIgnoringModifiers];
         
-        NSLog(@"modifiers = %ld", modifiers);
+        NSLog(@"modifiers = %lu", (unsigned long)modifiers);
         NSLog(@"characters = %@", [ev characters]);
         NSLog(@"charactersIgnoringModifiers = %@", [ev charactersIgnoringModifiers]);
         NSLog(@"keyCode = %d", [ev keyCode]);
@@ -172,6 +172,7 @@
 //    [statusItem retain];
 //    [statusItem setEnabled:YES];
 //    [statusItem setToolTip:@"Ἐναπομένοντα λεπτά"];
+    
     
     if ([timeoutTimer isValid]) {
         [self stopCountdown:nil];
@@ -237,6 +238,9 @@
     [[NSApp dockTile] setBadgeLabel:newStringValue];
 }
 
+
+// This method is called when the countdown is finished normally
+// without user intervention.
 - (void)countdownFinished:(id)sender
 {
     [NSApp requestUserAttention:NSCriticalRequest];
@@ -246,6 +250,31 @@
 
 - (void)stopCountdown:(id)sender
 {
+    if (sender != self) {
+        // the `cancel' button was pressed; need to get authorization
+        AuthorizationItem right = {kAuthorizationRightExecute, 0, NULL, 0};
+        AuthorizationRights rights = {1, &right};
+        AuthorizationFlags flags = kAuthorizationFlagDefaults |
+        kAuthorizationFlagInteractionAllowed |
+        kAuthorizationFlagPreAuthorize |
+        kAuthorizationFlagExtendRights;
+        //AuthorizationRef authRef;
+        OSStatus status = AuthorizationCreate (
+                                               &rights,
+                                               kAuthorizationEmptyEnvironment,
+                                               flags,
+//                                               kAuthorizationFlagExtendRights | 
+//                                               kAuthorizationFlagInteractionAllowed |
+//                                               kAuthorizationFlagDestroyRights | 
+//                                               kAuthorizationFlagPreAuthorize,
+                                               NULL
+                                               );
+        
+        
+        if (status != errAuthorizationSuccess)
+            return;
+    }
+    
     // ἀκύρωσον τὸν timeoutTimer ἐὰν οὗτος εἶναι ἐνεργός (ὅταν πατῆται τὸ κουμπὶ
     // «παῦσον».
     if ([timeoutTimer isValid]) {

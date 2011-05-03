@@ -7,7 +7,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <Security/Authorization.h>
+
 #import "Badge.h"
+
 #define DEFAULT_TIMEOUT 120  //ἀριθμὸς λεπτῶν τῆς ὥρας δι' ἐκπνοὴν τῆς ἀντιστρόφου 
                             // μετρήσεως
 

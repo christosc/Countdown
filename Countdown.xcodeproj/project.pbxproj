@@ -11,6 +11,7 @@
 		B61172A1135DC72B00AF5EAD /* greenBadge.tiff in Resources */ = {isa = PBXBuildFile; fileRef = B611729F135DC72B00AF5EAD /* greenBadge.tiff */; };
 		B61172A2135DC72B00AF5EAD /* redBadge.tiff in Resources */ = {isa = PBXBuildFile; fileRef = B61172A0135DC72B00AF5EAD /* redBadge.tiff */; };
 		B61172A4135DC73700AF5EAD /* README in Resources */ = {isa = PBXBuildFile; fileRef = B61172A3135DC73700AF5EAD /* README */; };
+		B64C3BB51370ACD9007CCED9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B64C3BB41370ACD9007CCED9 /* Security.framework */; };
 		B64F8CD2135CFA5700C2D61F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B64F8CD1135CFA5700C2D61F /* Cocoa.framework */; };
 		B64F8CDC135CFA5700C2D61F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B64F8CDA135CFA5700C2D61F /* InfoPlist.strings */; };
 		B64F8CDF135CFA5700C2D61F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B64F8CDE135CFA5700C2D61F /* main.m */; };
@@ -40,6 +41,7 @@
 		B611729F135DC72B00AF5EAD /* greenBadge.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = greenBadge.tiff; sourceTree = "<group>"; };
 		B61172A0135DC72B00AF5EAD /* redBadge.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = redBadge.tiff; sourceTree = "<group>"; };
 		B61172A3135DC73700AF5EAD /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		B64C3BB41370ACD9007CCED9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		B64F8CCD135CFA5700C2D61F /* Countdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Countdown.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B64F8CD1135CFA5700C2D61F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		B64F8CD4135CFA5700C2D61F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -67,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B64C3BB51370ACD9007CCED9 /* Security.framework in Frameworks */,
 				B64F8CD2135CFA5700C2D61F /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,6 +111,7 @@
 		B64F8CD0135CFA5700C2D61F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B64C3BB41370ACD9007CCED9 /* Security.framework */,
 				B64F8CD1135CFA5700C2D61F /* Cocoa.framework */,
 				B64F8CD3135CFA5700C2D61F /* Other Frameworks */,
 			);
